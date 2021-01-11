@@ -45,7 +45,7 @@ pen.color ("black")
 pen.penup ()
 pen.hideturtle ()
 pen.goto  (0, 260)
-pen.write ("Player 1: 0   Player 2: 0", align = "center", font = ("Courier", 16, "normal"))
+pen.write ("Player 1: 0   Player 2: 0", align = "center", font = ("Arial", 16, "normal"))
 
 # functions to move
 def platform_a_up ():
@@ -97,14 +97,15 @@ while True:
 		ball.xp *= -1
 		score_1 += 1
 		pen.clear ()
-		pen.write ("Player 1: {}   Player 2: {}".format (score_1, score_2), align = "center", font = ("Courier", 16, "normal"))
+		pen.write ("Player 1: {}   Player 2: {}".format (score_1, score_2), align = "center", font = ("Arial", 16, "normal"))
 
 	if ball.xcor () < -390:
 		ball.goto (0, 0)
 		ball.xp *= -1
 		score_2 += 1
 		pen.clear ()
-		pen.write ("Player 1: {}   Player 2: {}".format (score_1, score_2), align = "center", font = ("Courier", 16, "normal"))
+		pen.write ("Player 1: {}   Player 2: {}".format (score_1, score_2), align = "center", font = ("Arial", 16, "normal"))
+
 
 	#collison 
 	if (ball.xcor () > 340 and ball.xcor () < 350) and (ball.ycor () < platform_b.ycor () + 40 and ball.ycor () > platform_b.ycor () - 40):
@@ -115,6 +116,7 @@ while True:
 		ball.setx (-340)
 		ball.xp *= -1
 
-
-
-
+	if score_1 >= 10 or score_2 >= 10:
+			pen.clear ()
+			pen.write ("Player 1 won!", align = "center", font = ("Arial", 16, "normal"))
+			quit ()
